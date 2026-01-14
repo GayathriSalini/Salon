@@ -1,0 +1,24 @@
+body.is-preload #homebanner h2 {
+	-moz-transform: none;
+	-webkit-transform: none;
+	-ms-transform: none;
+	transform: none;
+	opacity: 1;
+}
+
+body.is-preload #homebanner h2:before,
+body.is-preload #homebanner h2:after {
+	width: 100%;
+}
+
+body.is-preload #homebanner .more {
+	-moz-transform: none;
+	-webkit-transform: none;
+	-ms-transform: none;
+	transform: none;
+	opacity: 1;
+}
+
+body.is-preload #homebanner:after {
+	opacity: 0;
+}
