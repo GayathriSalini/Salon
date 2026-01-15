@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="assests/css/noscript.css" />
     </noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assests/css/booking.css">
     <title>Book Appointment - Salon</title>
 </head>
 
@@ -35,62 +36,177 @@
 
         <!--booking banner-->
         <article id="main">
-            <header>
-                <h2>Book An Appointment</h2>
-                <p>Reserve your slot for a relaxing and rejuvenating experience.</p>
-            </header>
-            <section class="wrapper style5">
-                <div class="inner">
-                    <section>
-                        <h4>Appointment Details</h4>
-                        <form method="post" action="#">
-                            <div class="row gtr-uniform">
-                                <div class="col-12">
-                                    <label for="service">Select Service</label>
-                                    <select name="service" id="service">
-                                        <option value="">- Choose Service -</option>
-                                        <option value="haircut">Haircut & Styling</option>
-                                        <option value="haircut">Haircut & Styling</option>
-                                        <option value="haircut">Haircut & Styling</option>
-                                        <option value="haircut">Haircut & Styling</option>
-                                        <option value="haircut">Haircut & Styling</option>
-                                        <option value="haircut">Haircut & Styling</option>
-                                    </select>
-                                </div>
-                                <div class="col-6 col-12-xsmall">
-                                    <label for="date">Date</label>
-                                    <input type="date" name="date" id="date" />
-                                </div>
-                                <div class="col-6 col-12-xsmall">
-                                    <label for="time">Preferred Time</label>
-                                    <input type="time" name="time" id="time" />
-                                </div>
-                                <div class="col-6 col-12-xsmall">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" name="name" id="name" placeholder="Name" />
-                                </div>
-                                <div class="col-6 col-12-xsmall">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" name="email" id="email" placeholder="Email" />
-                                </div>
-                                <div class="col-12">
-                                    <label for="phone">Phone Number</label>
-                                    <input type="tel" name="phone" id="phone" placeholder="Phone Number" />
-                                </div>
-                                <div class="col-12">
-                                    <label for="message">Any Instructions(opt)</label>
-                                    <textarea name="message" id="message" placeholder="Any specific requirements..."
-                                        rows="4"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <ul class="actions">
-                                        <li><input type="submit" value="Confirm Booking" class="primary" /></li>
-                                        <li><input type="reset" value="Reset" /></li>
-                                    </ul>
+            <div class="booking-header-minimal">
+                <h2>Salon Booking</h2>
+            </div>
+
+            <section class="wrapper style5" style="padding: 0;">
+                <div class="booking-page-layout">
+
+                    <!-- Booking Content -->
+                    <div class="services-column">
+
+                        <!-- Select Services -->
+                        <div id="step-1" class="booking-step active">
+                            <div class="category-nav">
+                                <div class="category-list">
+                                    <div class="category-item active" data-category="hair">Hair Cut</div>
+                                    <div class="category-item" data-category="wash">Hair Wash</div>
+                                    <div class="category-item" data-category="spa">Hair Spa</div>
+                                    <div class="category-item" data-category="skin">Skin Care</div>
+                                    <div class="category-item" data-category="nails">Nails</div>
                                 </div>
                             </div>
-                        </form>
-                    </section>
+
+                            <div id="services-list">
+                                <h3 class="category-heading">Hair Cut</h3>
+                                <!-- Hair Cut -->
+                                <div class="service-card" data-id="1" data-category="hair"
+                                    data-name="Hair Cut + Complementary Beard Trimming" data-price="499"
+                                    data-duration="1 hr">
+                                    <div class="service-card-info">
+                                        <span class="service-card-name">Hair Cut + Complementary Beard Trimming</span>
+                                        <span class="service-card-duration">1 hr</span>
+                                        <span class="service-card-price">₹499</span>
+                                    </div>
+                                    <div class="add-btn"><i class="fas fa-plus"></i></div>
+                                </div>
+                                <div class="service-card" data-id="2" data-category="hair" data-name="Hair Cut - Men's"
+                                    data-price="499" data-duration="1 hr">
+                                    <div class="service-card-info">
+                                        <span class="service-card-name">Hair Cut - Men's</span>
+                                        <span class="service-card-duration">1 hr</span>
+                                        <span class="service-card-price">₹499</span>
+                                    </div>
+                                    <div class="add-btn"><i class="fas fa-plus"></i></div>
+                                </div>
+                                <div class="service-card" data-id="3" data-category="hair"
+                                    data-name="Hair Cut - Kids Under 10" data-price="249" data-duration="1 hr">
+                                    <div class="service-card-info">
+                                        <span class="service-card-name">Hair Cut - Kids Under 10</span>
+                                        <span class="service-card-duration">1 hr</span>
+                                        <span class="service-card-price">₹249</span>
+                                    </div>
+                                    <div class="add-btn"><i class="fas fa-plus"></i></div>
+                                </div>
+
+                                <!-- Hair Wash-->
+                                <div class="service-card" data-id="4" data-category="wash" data-name="Premium Hair Wash"
+                                    data-price="299" data-duration="30 min" style="display:none;">
+                                    <div class="service-card-info">
+                                        <span class="service-card-name">Premium Hair Wash</span>
+                                        <span class="service-card-duration">30 min</span>
+                                        <span class="service-card-price">₹299</span>
+                                    </div>
+                                    <div class="add-btn"><i class="fas fa-plus"></i></div>
+                                </div>
+
+                                <!-- Hair Spa -->
+                                <div class="service-card" data-id="5" data-category="spa" data-name="Hair Spa Treatment"
+                                    data-price="1200" data-duration="1.5 hr" style="display:none;">
+                                    <div class="service-card-info">
+                                        <span class="service-card-name">Hair Spa Treatment</span>
+                                        <span class="service-card-duration">1.5 hr</span>
+                                        <span class="service-card-price">₹1200</span>
+                                    </div>
+                                    <div class="add-btn"><i class="fas fa-plus"></i></div>
+                                </div>
+
+                                <!-- Skin Care  -->
+                                <div class="service-card" data-id="6" data-category="skin"
+                                    data-name="Golden Glow Facial" data-price="2500" data-duration="1 hr"
+                                    style="display:none;">
+                                    <div class="service-card-info">
+                                        <span class="service-card-name">Golden Glow Facial</span>
+                                        <span class="service-card-duration">1 hr</span>
+                                        <span class="service-card-price">₹2500</span>
+                                    </div>
+                                    <div class="add-btn"><i class="fas fa-plus"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="step-2" class="booking-step">
+                            <h3 class="category-heading">Select Date & Time</h3>
+                            <div class="row gtr-uniform">
+                                <div class="col-12">
+                                    <label for="date">Select Date</label>
+                                    <input type="date" id="booking-date" class="form-control" />
+                                </div>
+                            </div>
+                            <h4 style="margin-top: 30px; font-weight: 700;">Available Slots</h4>
+                            <div class="time-grid">
+                                <div class="time-slot" data-time="10:00 AM">10:00 AM</div>
+                                <div class="time-slot" data-time="11:00 AM">11:00 AM</div>
+                                <div class="time-slot" data-time="12:00 PM">12:00 PM</div>
+                                <div class="time-slot" data-time="01:00 PM">01:00 PM</div>
+                                <div class="time-slot" data-time="02:00 PM">02:00 PM</div>
+                                <div class="time-slot" data-time="03:00 PM">03:00 PM</div>
+                                <div class="time-slot" data-time="04:00 PM">04:00 PM</div>
+                                <div class="time-slot" data-time="05:00 PM">05:00 PM</div>
+                            </div>
+                            <ul class="actions" style="margin-top: 40px;">
+                                <li><button class="button back-btn">Back to Services</button></li>
+                            </ul>
+                        </div>
+
+                        <!-- last form -->
+                        <div id="step-3" class="booking-step">
+                            <h3 class="category-heading">Your Contact Details</h3>
+                            <div class="booking-form-minimal">
+                                <div class="row gtr-uniform">
+                                    <div class="col-12">
+                                        <label for="name">Your Name</label>
+                                        <input type="text" id="cust-name" placeholder="Full Name" />
+                                    </div>
+                                    <div class="col-6 col-12-xsmall">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="cust-email" placeholder="Email" />
+                                    </div>
+                                    <div class="col-6 col-12-xsmall">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="cust-phone" placeholder="Phone Number" />
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message">Any Allergies</label>
+                                        <textarea id="cust-message" placeholder="Any specific requirements..."
+                                            rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <ul class="actions" style="margin-top: 30px;">
+                                    <li><button class="button back-btn">Back</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="booking-sidebar">
+                        <div class="salon-info">
+                            <img src="images/banner.jpg" alt="Salon" class="salon-img">
+                            <div class="salon-details">
+                                <h4>Salon Royale</h4>
+                                <div class="salon-address">123 Street park lane, NY</div>
+                            </div>
+                        </div>
+
+                        <div id="summary-section" class="order-summary">
+
+                            <div id="empty-summary-msg" style="color: #888; text-align: center; padding: 20px 0;">
+                                No services selected yet
+                            </div>
+                            <div id="selected-items-list"></div>
+
+                            <div class="total-row">
+                                <span class="total-label">Total</span>
+                                <span class="total-amount">₹0</span>
+                            </div>
+                        </div>
+
+                        <button id="main-continue-btn" class="continue-btn" disabled>Continue</button>
+                    </div>
+
                 </div>
             </section>
         </article>
@@ -117,6 +233,112 @@
     <script src="assests/js/breakoutpoints.min.js"></script>
     <script src="assests/js/util.js"></script>
     <script src="assests/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            let selectedServices = [];
+            let currentStep = 1;
+            let selectedTime = null;
+
+
+            $(document).on('click', '.service-card', function () {
+                const id = $(this).data('id');
+                const name = $(this).data('name');
+                const price = parseInt($(this).data('price'));
+
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                    selectedServices = selectedServices.filter(s => s.id !== id);
+                } else {
+                    $(this).addClass('selected');
+                    selectedServices.push({ id, name, price });
+                }
+                updateSummary();
+            });
+
+            function updateSummary() {
+                const list = $('#selected-items-list');
+                const emptyMsg = $('#empty-summary-msg');
+                const totalEl = $('.total-amount');
+                const continueBtn = $('#main-continue-btn');
+
+                list.empty();
+                let total = 0;
+
+                if (selectedServices.length === 0) {
+                    emptyMsg.show();
+                    continueBtn.prop('disabled', true);
+                } else {
+                    emptyMsg.hide();
+                    continueBtn.prop('disabled', false);
+                    selectedServices.forEach(service => {
+                        list.append(`
+                            <div class="summary-item">
+                                <span class="summary-item-name">${service.name}</span>
+                                <span class="summary-item-price">₹${service.price}</span>
+                            </div>
+                        `);
+                        total += service.price;
+                    });
+                }
+
+                totalEl.text('₹' + total);
+            }
+
+            // Continue Button Logic
+            $('#main-continue-btn').on('click', function () {
+                if (currentStep === 1) {
+                    goToStep(2);
+                } else if (currentStep === 2) {
+                    if (!selectedTime || !$('#booking-date').val()) {
+                        alert('Please select a date and time');
+                        return;
+                    }
+                    goToStep(3);
+                } else if (currentStep === 3) {
+                    alert('Booking Confirmed! Thank you.');
+                    window.location.href = 'home.html';
+                }
+            });
+
+            function goToStep(step) {
+                $('.booking-step').removeClass('active');
+                $(`#step-${step}`).addClass('active');
+                currentStep = step;
+
+
+                if (currentStep === 1) $('#main-continue-btn').text('Continue');
+                else if (currentStep === 2) $('#main-continue-btn').text('Go to Details');
+                else if (currentStep === 3) $('#main-continue-btn').text('Confirm Booking');
+
+                window.scrollTo(0, 0);
+            }
+
+            $('.back-btn').on('click', function () {
+                goToStep(currentStep - 1);
+            });
+
+
+            $(document).on('click', '.time-slot', function () {
+                $('.time-slot').removeClass('selected');
+                $(this).addClass('selected');
+                selectedTime = $(this).data('time');
+            });
+
+
+            // Category Switching
+            $('.category-item').on('click', function () {
+                $('.category-item').removeClass('active');
+                $(this).addClass('active');
+
+                const selectedCat = $(this).data('category');
+                $('.category-heading').text($(this).text());
+
+                // Filter services
+                $('.service-card').hide();
+                $(`.service-card[data-category="${selectedCat}"]`).fadeIn();
+            });
+        });
+    </script>
 </body>
 
 </html>
