@@ -9,13 +9,13 @@
         <link rel="stylesheet" href="assests/css/noscript.css" />
     </noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Contact Us</title>
+    <title>Book Appointment - Salon</title>
 </head>
 
 <body class="is-preload">
     <div id="page-wrapper">
         <header id="header">
-            <h1><a href="home.html">Salon </a></h1>
+            <h1><a href="home.html">Salon</a></h1>
             <nav id="nav">
                 <ul>
                     <li class="special">
@@ -33,33 +33,58 @@
             </nav>
         </header>
 
-        <!--contact banner-->
+        <!--booking banner-->
         <article id="main">
             <header>
-                <h2>Contact Us</h2>
-                <p>Get in touch with us for any inquiries or questions.</p>
+                <h2>Book An Appointment</h2>
+                <p>Reserve your slot for a relaxing and rejuvenating experience.</p>
             </header>
             <section class="wrapper style5">
                 <div class="inner">
                     <section>
-                        <h4>Send us a Message</h4>
-                        <p>Fill out the form below to get in touch with us. </p>
-                        <form method="post" action="">
+                        <h4>Appointment Details</h4>
+                        <form method="post" action="#">
                             <div class="row gtr-uniform">
-                                <div class="col-6 col-12-xsmall">
-                                    <input type="text" name="name" id="demo-name" placeholder="Name" />
+                                <div class="col-12">
+                                    <label for="service">Select Service</label>
+                                    <select name="service" id="service">
+                                        <option value="">- Choose Service -</option>
+                                        <option value="haircut">Haircut & Styling</option>
+                                        <option value="haircut">Haircut & Styling</option>
+                                        <option value="haircut">Haircut & Styling</option>
+                                        <option value="haircut">Haircut & Styling</option>
+                                        <option value="haircut">Haircut & Styling</option>
+                                        <option value="haircut">Haircut & Styling</option>
+                                    </select>
                                 </div>
                                 <div class="col-6 col-12-xsmall">
-                                    <input type="email" name="email" id="demo-email" value="" placeholder="Email" />
+                                    <label for="date">Date</label>
+                                    <input type="date" name="date" id="date" />
+                                </div>
+                                <div class="col-6 col-12-xsmall">
+                                    <label for="time">Preferred Time</label>
+                                    <input type="time" name="time" id="time" />
+                                </div>
+                                <div class="col-6 col-12-xsmall">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" name="name" id="name" placeholder="Name" />
+                                </div>
+                                <div class="col-6 col-12-xsmall">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" name="email" id="email" placeholder="Email" />
                                 </div>
                                 <div class="col-12">
-                                    <textarea name="demo-message" id="demo-message" placeholder="Your message"
-                                        rows="6"></textarea>
-
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" name="phone" id="phone" placeholder="Phone Number" />
+                                </div>
+                                <div class="col-12">
+                                    <label for="message">Any Instructions(opt)</label>
+                                    <textarea name="message" id="message" placeholder="Any specific requirements..."
+                                        rows="4"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <ul class="actions">
-                                        <li><input type="submit" value="Send Message" class="primary" /></li>
+                                        <li><input type="submit" value="Confirm Booking" class="primary" /></li>
                                         <li><input type="reset" value="Reset" /></li>
                                     </ul>
                                 </div>
@@ -76,15 +101,12 @@
                 <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
                 <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
                 <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-
                 <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
             </ul>
             <ul class="copyright">
-                <li>&copy; copyright 2026</li>
-                <li>Design: <a href="#">Gaya</a></li>
+                <li>&copy; copyright 2026 Salon. All rights reserved.</li>
             </ul>
         </footer>
-
 
     </div>
     <!--Scripts-->

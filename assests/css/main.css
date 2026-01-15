@@ -1913,6 +1913,9 @@ label {
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="date"],
+input[type="time"],
+input[type="tel"],
 select,
 textarea {
 	-moz-appearance: none;
@@ -1933,6 +1936,9 @@ textarea {
 input[type="text"]:invalid,
 input[type="password"]:invalid,
 input[type="email"]:invalid,
+input[type="date"]:invalid,
+input[type="time"]:invalid,
+input[type="tel"]:invalid,
 select:invalid,
 textarea:invalid {
 	box-shadow: none;
@@ -1941,6 +1947,9 @@ textarea:invalid {
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="tel"]:focus,
 select:focus,
 textarea:focus {
 	box-shadow: 0 0 0 2px #21b2a6;
@@ -1966,6 +1975,9 @@ select::-ms-expand {
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="date"],
+input[type="time"],
+input[type="tel"],
 select {
 	height: 2.75em;
 }
