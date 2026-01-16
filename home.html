@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assests/css/main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <noscript>
         <link rel="stylesheet" href="assests/css/noscript.css" />
     </noscript>
@@ -42,7 +43,7 @@
                     feeling amazing.<a href="about.html">About Us</a>
                 </p>
                 <ul class="actions special">
-                    <li><a href="book.html" class="button primary">Book Appointment</a></li>
+                    <li><a href="book.html" data-aos="fade-up" class=" button primary ">Book Appointment</a></li>
                 </ul>
             </div>
             <a href="#one" class="more scrolly">Learn More</a>
@@ -67,20 +68,19 @@
             </div>
         </section>
 
-        <!--cards-->
         <section id="two" class="wrapper alt style2">
             <section class="cardmains">
-                <div class="image"><img src="images/pic01.jpg" alt="" /></div>
-                <div class="content">
+                <div class="image" data-aos="fade-right"><img src="images/pic01.jpg" alt="" /></div>
+                <div class="content" data-aos="fade-left">
                     <h2>Relax, renew, and restore your body<br />
                         with soothing treatments designed for you</h2>
-                    <p>Pamper yourself with deep care and total comfort. From detox scrubs to calming wraps,<br />
+                    <p>Pamper yourself with deep care and total comfort. From detox scrubs to calming wraps,
                         experience smooth skin, stress relief, and a glow that feels as good as it looks.</p>
                 </div>
             </section>
             <section class="cardmains">
-                <div class="image"><img src="images/pic02.jpg" alt="" /></div>
-                <div class="content">
+                <div class="image" data-aos="fade-left"><img src="images/pic02.jpg" alt="" /></div>
+                <div class="content" data-aos="fade-right">
                     <h2>Revive your hair</h2>
                     <p>Nourish strands with rich oils and hydrating care.Strengthen roots,<br />
                         smooth frizz, and bring back shine —
@@ -88,8 +88,8 @@
                 </div>
             </section>
             <section class="cardmains">
-                <div class="image"><img src="images/pic03.jpg" alt="" /></div>
-                <div class="content">
+                <div class="image" data-aos="fade-right"><img src="images/pic03.jpg" alt="" /></div>
+                <div class="content" data-aos="fade-left">
                     <h2>Radiant skin refresh and gentle glow</h2>
                     <p>Treat your skin to soothing masks and deep hydration.<br />
                         Revive dullness, clear impurities, and reveal a natural glow
@@ -107,30 +107,30 @@
                         service that pampers and truly cares for you.</p>
                 </header>
                 <ul class="features">
-                    <li class="icon fa-user">
+                    <li class="icon fa-user" data-aos="fade-up" data-aos-delay="100">
                         <h3>Qualified Personnel</h3>
                         <p>With 10+ years of hands-on salon experience, our stylists deliver expert cuts, color, and
                             care every time.</p>
                     </li>
-                    <li class="icon solid fa-star">
+                    <li class="icon solid fa-star" data-aos="fade-up" data-aos-delay="200">
                         <h3>Up-to-Date Knowledge</h3>
                         <p>Our professionals stay updated on the latest hair, skin, and beauty trends to bring you
                             modern styles.</p>
                     </li>
-                    <li class="icon solid fa-air-freshener">
-                        <h3>State-of-the-Art Equipment</h3>
+                    <li class="icon solid fa-air-freshener" data-aos="fade-up" data-aos-delay="300">
+                        <h3>State-of-Art Equipment</h3>
                         <p>We work with premium salon tools and tech to ensure safe, smooth, and flawless results.</p>
                     </li>
-                    <li class="icon solid fa-pump-soap">
+                    <li class="icon solid fa-pump-soap" data-aos="fade-up" data-aos-delay="100">
                         <h3>High-Quality Products</h3>
                         <p>Only trusted, salon-grade products are used to nourish and protect your hair and skin.</p>
                     </li>
-                    <li class="icon fa-heart">
+                    <li class="icon fa-heart" data-aos="fade-up" data-aos-delay="200">
                         <h3>Personalized Beauty Solutions</h3>
                         <p>Every service is tailored — from hair and skin type to your personal mood, style, and
                             lifestyle.</p>
                     </li>
-                    <li class="icon fa-thumbs-up">
+                    <li class="icon fa-thumbs-up" data-aos="fade-up" data-aos-delay="300">
                         <h3>Hygienic & Relaxing Environment</h3>
                         <p>A clean, safe, and calming salon atmosphere crafted to help you unwind and enjoy the
                             experience.</p>
@@ -174,11 +174,19 @@
     <!--Scripts-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollex/0.2.1/jquery.scrollex.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assests/js/jquery.scrolly.min.js"></script>
     <script src="assests/js/browser.min.js"></script>
     <script src="assests/js/breakoutpoints.min.js"></script>
     <script src="assests/js/util.js"></script>
     <script src="assests/js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
 
 </body>
 
