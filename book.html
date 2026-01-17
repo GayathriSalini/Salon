@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assests/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
     <noscript>
         <link rel="stylesheet" href="assests/css/noscript.css" />
     </noscript>
@@ -48,6 +54,7 @@
 
                         <!-- Select Services -->
                         <div id="step-1" class="booking-step active">
+                            <h3 class="category-heading">Hair Cut</h3>
                             <div class="category-nav">
                                 <div class="category-list">
                                     <div class="category-item active" data-category="hair">Hair Cut</div>
@@ -59,7 +66,6 @@
                             </div>
 
                             <div id="services-list">
-                                <h3 class="category-heading">Hair Cut</h3>
                                 <!-- Hair Cut -->
                                 <div class="service-card" data-id="1" data-category="hair"
                                     data-name="Hair Cut + Complementary Beard Trimming" data-price="499"
@@ -144,33 +150,44 @@
                             </div>
                         </div>
 
-
+                        <!-- Step 2: Select Professional -->
                         <div id="step-2" class="booking-step">
+                            <h3 class="category-heading">Prefered Professional</h3>
+                            <div class="team-container" id="team-list">
+                                <!-- in JS -->
+                            </div>
+                            <ul class="actions" style="margin-top: 30px;">
+                                <li><button class="button back-btn">Back</button></li>
+                            </ul>
+                        </div>
+
+
+                        <div id="step-3" class="booking-step">
                             <h3 class="category-heading">Select Date & Time</h3>
-                            <div class="row gtr-uniform">
-                                <div class="col-12">
-                                    <label for="date">Select Date</label>
-                                    <input type="date" id="booking-date" class="form-control" />
+
+                            <div class="date-picker-container" style="position: relative;">
+                                <button class="date-nav-btn prev" id="date-prev"><i
+                                        class="fas fa-chevron-left"></i></button>
+                                <div class="horizontal-date-picker" id="date-scroll">
+                                    <!-- in JS -->
                                 </div>
+                                <button class="date-nav-btn next" id="date-next"><i
+                                        class="fas fa-chevron-right"></i></button>
                             </div>
+                            <input type="hidden" id="booking-date">
+
                             <h4 style="margin-top: 30px; font-weight: 700;">Available Slots</h4>
-                            <div class="time-grid">
-                                <div class="time-slot" data-time="10:00 AM">10:00 AM</div>
-                                <div class="time-slot" data-time="11:00 AM">11:00 AM</div>
-                                <div class="time-slot" data-time="12:00 PM">12:00 PM</div>
-                                <div class="time-slot" data-time="01:00 PM">01:00 PM</div>
-                                <div class="time-slot" data-time="02:00 PM">02:00 PM</div>
-                                <div class="time-slot" data-time="03:00 PM">03:00 PM</div>
-                                <div class="time-slot" data-time="04:00 PM">04:00 PM</div>
-                                <div class="time-slot" data-time="05:00 PM">05:00 PM</div>
+                            <div class="time-cards-container" id="time-slots-container">
+                                <!-- in JS -->
                             </div>
+
                             <ul class="actions" style="margin-top: 40px;">
                                 <li><button class="button back-btn">Back to Services</button></li>
                             </ul>
                         </div>
 
                         <!-- last form -->
-                        <div id="step-3" class="booking-step">
+                        <div id="step-4" class="booking-step">
                             <h3 class="category-heading">Your Contact Details</h3>
                             <div class="booking-form-minimal">
                                 <div class="row gtr-uniform">

@@ -1,5 +1,5 @@
 @import url(fontawesome-all.min.css);
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
+/* @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic"); */
 
 html,
 body,
@@ -188,7 +188,7 @@ input,
 select,
 textarea {
 	color: #fff;
-	font-family: "Open Sans", Helvetica, sans-serif;
+	font-family: "Inter", sans-serif;
 	font-size: 15pt;
 	font-weight: 400;
 	letter-spacing: 0.075em;
@@ -2064,22 +2064,22 @@ input[type="radio"]+label:before {
 }
 
 ::-webkit-input-placeholder {
-	color: rgba(255, 255, 255, 0.5) !important;
+	color: rgba(0, 0, 0, 0.45) !important;
 	opacity: 1.0;
 }
 
 :-moz-placeholder {
-	color: rgba(255, 255, 255, 0.5) !important;
+	color: rgba(0, 0, 0, 0.45) !important;
 	opacity: 1.0;
 }
 
 ::-moz-placeholder {
-	color: rgba(255, 255, 255, 0.5) !important;
+	color: rgba(0, 0, 0, 0.45) !important;
 	opacity: 1.0;
 }
 
 :-ms-input-placeholder {
-	color: rgba(255, 255, 255, 0.5) !important;
+	color: rgba(0, 0, 0, 0.45) !important;
 	opacity: 1.0;
 }
 

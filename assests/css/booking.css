@@ -378,6 +378,274 @@
     color: #000;
 }
 
+/* Team Selection */
+.team-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.team-card {
+    background: #fdfdfd;
+    border: 1px solid #f0f0f0;
+    border-radius: 20px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.team-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border-color: #eee;
+}
+
+.team-card.selected {
+    border-color: var(--primary-color);
+    background: #fff;
+}
+
+.team-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #888;
+    font-size: 1.2rem;
+}
+
+.team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-info {
+    flex: 1;
+}
+
+.team-name {
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #000;
+}
+
+.team-specialty {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.team-select-icon {
+    color: #eee;
+    font-size: 1rem;
+}
+
+.team-card.selected .team-select-icon {
+    color: var(--primary-color);
+}
+
+
+.booking-greeting {
+    margin-bottom: 25px;
+}
+
+.booking-greeting span {
+    display: block;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.booking-greeting h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #000;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: -0.02em;
+}
+
+.date-picker-container {
+    background: #fff;
+    border-radius: 24px;
+    padding: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f0f0f0;
+}
+
+.horizontal-date-picker {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-date-picker::-webkit-scrollbar {
+    display: none;
+}
+
+.date-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 75px;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 10px 5px;
+    border-radius: 15px;
+}
+
+.date-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    color: #333;
+    line-height: 1;
+}
+
+.date-nav-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+.date-nav-btn.prev {
+    left: -15px;
+}
+
+.date-nav-btn.next {
+    right: -15px;
+}
+
+.date-day {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.date-number {
+    font-size: 1rem;
+    font-weight: 700;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.date-item.active .date-number {
+    background: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.date-item.active .date-day {
+    color: #333;
+}
+
+/* Time Cards */
+.time-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.time-card {
+    background: #fdfdfd;
+    border: 1px solid #f0f0f0;
+    border-radius: 18px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.time-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border-color: #eee;
+}
+
+.time-card.selected {
+    border-color: var(--primary-color);
+    background: #fdfdfd;
+}
+
+.time-icon {
+    width: 42px;
+    height: 42px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.time-card.selected .time-icon {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.time-info {
+    flex: 1;
+}
+
+.time-label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #000;
+    margin-bottom: 2px;
+}
+
+.time-subtext {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.time-more-btn {
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
 /* Mobile responsiveness card part */
 @media screen and (max-width: 980px) {
     .booking-page-layout {
