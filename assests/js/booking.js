@@ -1,16 +1,27 @@
 $(document).ready(function () {
     let selectedServices = [];
-    let selectedTeamMember = { id: 0, name: 'Any Stylist' };
     let currentStep = 1;
     let selectedTime = null;
     let selectedDate = null;
 
     const teamMembers = [
         { id: 0, name: 'Any Stylist', specialty: 'Fastest available', avatar: 'fas fa-users' },
-        { id: 1, name: 'Alex Rivera', specialty: 'Senior Stylist', avatar: 'fas fa-user' },
-        { id: 2, name: 'Sarah Chen', specialty: 'Color Expert', avatar: 'fas fa-user' },
-        { id: 3, name: 'Marco Rossi', specialty: 'Skin Specialist', avatar: 'fas fa-user' }
+        { id: 1, name: 'Alex Rivera', avatar: 'fas fa-user' },
+        { id: 2, name: 'Sarah Chen', avatar: 'fas fa-user' },
+        { id: 3, name: 'Marco Rossi', avatar: 'fas fa-user' }
     ];
+
+    // Helper: Get default team member
+    function getDefaultTeamMember() {
+        return { id: 0, name: 'Any Stylist' };
+    }
+
+    // Helper: Build team member options for dropdown
+    function buildTeamOptions(selectedId) {
+        return teamMembers.map(member =>
+            `<option value="${member.id}" ${member.id === selectedId ? 'selected' : ''}>${member.name}</option>`
+        ).join('');
+    }
 
     // Helper: Initialize Date Picker
     function initializeDatePicker() {
@@ -57,13 +68,18 @@ $(document).ready(function () {
             "04:00 PM", "05:00 PM"
         ];
 
+        // Get summary of team members for display
+        const teamSummary = selectedServices.length > 0
+            ? [...new Set(selectedServices.map(s => s.teamMember.name))].join(', ')
+            : 'Any Stylist';
+
         slots.forEach(time => {
             container.append(`
                 <div class="time-card" data-time="${time}">
                     <div class="time-icon"><i class="far fa-clock"></i></div>
                     <div class="time-info">
                         <span class="time-label">${time}</span>
-                        <span class="time-subtext">Available • ${selectedTeamMember.name}</span>
+                        <span class="time-subtext">Available • ${teamSummary}</span>
                     </div>
                     <div class="time-more-btn"><i class="fas fa-ellipsis-v"></i></div>
                 </div>
@@ -71,23 +87,38 @@ $(document).ready(function () {
         });
     }
 
-    // Helper: Render Team Members
+    //(Step 2 - now shows all services with their team selections)
     function renderTeamMembers() {
         const container = $('#team-list');
         container.empty();
 
-        teamMembers.forEach(member => {
-            const isSelected = selectedTeamMember.id === member.id ? 'selected' : '';
-            const avatarContent = `<i class="${member.avatar}"></i>`;
+        if (selectedServices.length === 0) {
+            container.append('<p style="color: #888; text-align: center;">Please select services first</p>');
+            return;
+        }
 
+        selectedServices.forEach((service, index) => {
             container.append(`
-                <div class="team-card ${isSelected}" data-id="${member.id}" data-name="${member.name}">
-                    <div class="team-avatar">${avatarContent}</div>
-                    <div class="team-info">
-                        <span class="team-name">${member.name}</span>
-                        
+                <div class="service-team-selector" data-service-index="${index}">
+                    <div class="service-team-header">
+                        <span class="service-team-name">${service.name}</span>
+                        <span class="service-team-price">₹${service.price}</span>
                     </div>
-                    <div class="team-select-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="team-options-container">
+                        ${teamMembers.map(member => `
+                            <div class="team-card ${service.teamMember.id === member.id ? 'selected' : ''}" 
+                                 data-member-id="${member.id}" 
+                                 data-member-name="${member.name}"
+                                 data-service-index="${index}">
+                                <div class="team-avatar"><i class="${member.avatar}"></i></div>
+                                <div class="team-info">
+                                    <span class="team-name">${member.name}</span>
+                                    ${member.specialty ? `<span class="team-specialty">${member.specialty}</span>` : ''}
+                                </div>
+                                <div class="team-select-icon"><i class="fas fa-check-circle"></i></div>
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
             `);
         });
@@ -120,20 +151,52 @@ $(document).ready(function () {
             selectedServices = selectedServices.filter(s => s.id !== id);
         } else {
             $(this).addClass('selected');
-            selectedServices.push({ id, name, price });
+
+            selectedServices.push({
+                id,
+                name,
+                price,
+                teamMember: getDefaultTeamMember()
+            });
         }
         updateSummary();
     });
 
-    $(document).on('click', '.team-card', function () {
-        $('.team-card').removeClass('selected');
+    // Team member selection in Step 2 
+    $(document).on('click', '#team-list .team-card', function () {
+        const serviceIndex = $(this).data('service-index');
+        const memberId = $(this).data('member-id');
+        const memberName = $(this).data('member-name');
+
+
+        if (selectedServices[serviceIndex]) {
+            selectedServices[serviceIndex].teamMember = {
+                id: memberId,
+                name: memberName
+            };
+        }
+
+
+        $(this).closest('.team-options-container').find('.team-card').removeClass('selected');
         $(this).addClass('selected');
-        selectedTeamMember = {
-            id: $(this).data('id'),
-            name: $(this).data('name')
-        };
+
         updateSummary();
-        renderTimeSlots(); // Update subtext in time slots
+        renderTimeSlots();
+    });
+
+    // Team member change 
+    $(document).on('change', '.summary-team-select', function () {
+        const serviceId = $(this).data('service-id');
+        const memberId = parseInt($(this).val());
+        const member = teamMembers.find(m => m.id === memberId);
+
+        const service = selectedServices.find(s => s.id === serviceId);
+        if (service && member) {
+            service.teamMember = { id: member.id, name: member.name };
+        }
+
+        renderTeamMembers();
+        renderTimeSlots();
     });
 
     function updateSummary() {
@@ -152,21 +215,21 @@ $(document).ready(function () {
             emptyMsg.hide();
             continueBtn.prop('disabled', false);
 
-            // Add Professional if selected
-            list.append(`
-                <div class="summary-item" style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px;">
-                    <span class="summary-item-name"><i class="fas fa-user-check" style="margin-right: 8px;"></i>${selectedTeamMember.name}</span>
-                    <span class="summary-item-price" style="font-size: 0.8rem; font-weight: 400; color: #888;">Professional</span>
-                </div>
-            `);
-
             selectedServices.forEach(service => {
                 list.append(`
-                            <div class="summary-item">
-                                <span class="summary-item-name">${service.name}</span>
-                                <span class="summary-item-price">₹${service.price}</span>
-                            </div>
-                        `);
+                    <div class="summary-service-item">
+                        <div class="summary-service-header">
+                            <span class="summary-item-name">${service.name}</span>
+                            <span class="summary-item-price">₹${service.price}</span>
+                        </div>
+                        <div class="summary-team-row">
+                            <i class="fas fa-user-check"></i>
+                            <select class="summary-team-select" data-service-id="${service.id}">
+                                ${buildTeamOptions(service.teamMember.id)}
+                            </select>
+                        </div>
+                    </div>
+                `);
                 total += service.price;
             });
         }
@@ -198,7 +261,10 @@ $(document).ready(function () {
         currentStep = step;
 
         if (currentStep === 1) $('#main-continue-btn').text('Continue');
-        else if (currentStep === 2) $('#main-continue-btn').text('Select Time');
+        else if (currentStep === 2) {
+            $('#main-continue-btn').text('Select Time');
+            renderTeamMembers();
+        }
         else if (currentStep === 3) $('#main-continue-btn').text('Go to Details');
         else if (currentStep === 4) $('#main-continue-btn').text('Confirm Booking');
 
@@ -224,15 +290,39 @@ $(document).ready(function () {
         selectedTime = $(this).data('time');
     });
 
-    // Category Switching
+    // Category Click - Smooth Scroll to Section
     $('.category-item').on('click', function () {
         $('.category-item').removeClass('active');
         $(this).addClass('active');
 
         const selectedCat = $(this).data('category');
-        $('.category-heading').text($(this).text());
+        const targetSection = $(`#section-${selectedCat}`);
 
-        $('.service-card').hide();
-        $(`.service-card[data-category="${selectedCat}"]`).fadeIn();
+        if (targetSection.length) {
+            const servicesList = $('#services-list');
+            const scrollOffset = targetSection.position().top + servicesList.scrollTop() - 10;
+
+            servicesList.animate({
+                scrollTop: scrollOffset
+            }, 400, 'swing');
+        }
+    });
+
+
+    $('#services-list').on('scroll', function () {
+        const scrollPos = $(this).scrollTop();
+        const sections = $('.service-section');
+
+        sections.each(function () {
+            const sectionTop = $(this).position().top + scrollPos - 50;
+            const sectionBottom = sectionTop + $(this).outerHeight();
+            const sectionId = $(this).attr('id');
+            const category = sectionId.replace('section-', '');
+
+            if (scrollPos >= sectionTop - 100 && scrollPos < sectionBottom - 100) {
+                $('.category-item').removeClass('active');
+                $(`.category-item[data-category="${category}"]`).addClass('active');
+            }
+        });
     });
 });
