@@ -1,4 +1,4 @@
-# Salon - Luxury Beauty & Wellness 💅✨
+# Salon - Luxury Beauty & Wellness ✨
 
 **Salon** is a premium, modern, and fully responsive beauty salon website designed to provide a seamless user experience from discovery to booking. Featuring a sleek UI with smooth animations and an intuitive multi-step booking system.
 
